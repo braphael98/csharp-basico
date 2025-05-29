@@ -24,6 +24,14 @@ void MenuOptions()
     Console.WriteLine("Digite 4 para exibir a media de uma banda");
     Console.WriteLine("Digite -1 para sair");
 
+    Console.Write("\nDigite a sua opção: ");
+    String optionChoice = Console.ReadLine()!;
+    int optionChoiceNumber = int.Parse(optionChoice); //conversão de tipo de variavel.
+    if (optionChoiceNumber == 1)
+    {
+        Console.WriteLine("Você digitou: " + optionChoice);
+    }
+
 }
 
 ShowMessage();
