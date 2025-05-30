@@ -1,6 +1,7 @@
 ﻿// Screen sound projeto do curso da alura de c#
 // Variaveis camelCase, funções PascalCase
 string welcomeMessage = "Boas vindas ao screen sound";
+List<string> bandList = new List<string>();
 
 void ShowLogo()
 {
@@ -34,6 +35,7 @@ void MenuOptions()
             Console.WriteLine("Opção: " + optionChoiceNumber);
             break;
         case 2:
+            BandShow();
             Console.WriteLine("Opção: " + optionChoiceNumber);
             break;
         case 3:
@@ -54,16 +56,34 @@ void MenuOptions()
 void BandResgister()
 {
     Console.Clear();
+
     Console.WriteLine("Registro de bandas");
     Console.Write("Digite a banda ou artista que queira registar: ");
     string bandName = Console.ReadLine()!;
+
+    bandList.Add(bandName);
+
     Console.WriteLine($"Banda {bandName} registrada com sucesso");
     Thread.Sleep(2000);
     Console.Clear();
     MenuOptions();
 }
 
-ShowLogo();
+void BandShow()
+{
+    Console.Clear();
+    for (int i = 0; i < bandList.Count; i++)
+    {
+        Console.WriteLine($"Banda: {bandList[i]}");
+    }
+    Console.Write("Digite B para voltar ao menu: ");
+    string voltar = Console.ReadLine()!;
+    if (voltar == "B")
+    {
+        MenuOptions();
+    }
+    
+}
 MenuOptions();
 
 
