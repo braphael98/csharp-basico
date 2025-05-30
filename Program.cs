@@ -2,7 +2,7 @@
 // Variaveis camelCase, funções PascalCase
 string welcomeMessage = "Boas vindas ao screen sound";
 
-void ShowMessage()
+void ShowLogo()
 {
     Console.WriteLine(@"
 
@@ -10,14 +10,13 @@ void ShowMessage()
 ▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█   ▄█ █▄█ █▄█ █░▀█ █▄▀
 ");
     //para adicionar titulos divertidos deve usar o @ (verbatinliteral).
-
-    Console.WriteLine("***********************");
     Console.WriteLine(welcomeMessage);
-    Console.WriteLine("***********************");
+
 }
 
 void MenuOptions()
 {
+    ShowLogo();
     Console.WriteLine("\nDigite 1 para registrar uma banda");
     Console.WriteLine("Digite 2 para mostrar todas as bandas");
     Console.WriteLine("Digite 3 para avaliar uma banda");
@@ -27,14 +26,44 @@ void MenuOptions()
     Console.Write("\nDigite a sua opção: ");
     String optionChoice = Console.ReadLine()!;
     int optionChoiceNumber = int.Parse(optionChoice); //conversão de tipo de variavel.
-    if (optionChoiceNumber == 1)
+
+    switch (optionChoiceNumber) // para menus é melhor usar switch case.
     {
-        Console.WriteLine("Você digitou: " + optionChoice);
+        case 1:
+            BandResgister();
+            Console.WriteLine("Opção: " + optionChoiceNumber);
+            break;
+        case 2:
+            Console.WriteLine("Opção: " + optionChoiceNumber);
+            break;
+        case 3:
+            Console.WriteLine("Opção: " + optionChoiceNumber);
+            break;
+        case 4:
+            Console.WriteLine("Opção: " + optionChoiceNumber);
+            break;
+        case -1:
+            Console.WriteLine("Fim da aplicação ");
+            break;
+        default:
+            Console.WriteLine("OPÇÃO INVALIDA");
+            break;
     }
 
 }
+void BandResgister()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de bandas");
+    Console.Write("Digite a banda ou artista que queira registar: ");
+    string bandName = Console.ReadLine()!;
+    Console.WriteLine($"Banda {bandName} registrada com sucesso");
+    Thread.Sleep(2000);
+    Console.Clear();
+    MenuOptions();
+}
 
-ShowMessage();
+ShowLogo();
 MenuOptions();
 
 
