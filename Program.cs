@@ -1,7 +1,7 @@
 ﻿// Screen sound projeto do curso da alura de c#
 // Variaveis camelCase, funções PascalCase
 string welcomeMessage = "Boas vindas ao screen sound";
-List<string> bandList = new List<string>();
+List<string> bandList = new List<string> { "Beatles", "Pink Floyd", "Yes" };
 
 void ShowLogo()
 {
@@ -35,7 +35,7 @@ void MenuOptions()
             Console.WriteLine("Opção: " + optionChoiceNumber);
             break;
         case 2:
-            BandShow();
+            ShowBands();
             Console.WriteLine("Opção: " + optionChoiceNumber);
             break;
         case 3:
@@ -56,8 +56,7 @@ void MenuOptions()
 void BandResgister()
 {
     Console.Clear();
-
-    Console.WriteLine("Registro de bandas");
+    OptionTittle("Registro das bandas");
     Console.Write("Digite a banda ou artista que queira registar: ");
     string bandName = Console.ReadLine()!;
 
@@ -69,21 +68,29 @@ void BandResgister()
     MenuOptions();
 }
 
-void BandShow()
+void ShowBands()
 {
     Console.Clear();
-    for (int i = 0; i < bandList.Count; i++)
+    OptionTittle("Bandas Registradas !");
+    foreach (string band in bandList)
     {
-        Console.WriteLine($"Banda: {bandList[i]}");
+        Console.WriteLine($"Banda: {band}");
     }
-    Console.Write("Digite B para voltar ao menu: ");
-    string voltar = Console.ReadLine()!;
-    if (voltar == "B")
-    {
-        MenuOptions();
-    }
-    
+
+    Console.WriteLine("\nDigite uma tecla para voltar ao menu");
+    Console.ReadKey();
+    Console.Clear();
+    MenuOptions();
+}
+void OptionTittle(string tittle)
+{
+    int letterCount = tittle.Length; //variavel para contar a quantidade de letras que eu passar no parametro.
+    string asterisks = string.Empty.PadLeft(letterCount, '*');
+    Console.WriteLine(asterisks);
+    Console.WriteLine(tittle);
+    Console.WriteLine(asterisks + "\n");
 }
 MenuOptions();
+
 
 
