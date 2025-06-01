@@ -36,14 +36,15 @@ void MenuOptions()
     {
         case 1:
             BandResgister();
-            Console.WriteLine("Opção: " + optionChoiceNumber);
+            
             break;
         case 2:
             ShowBands();
-            Console.WriteLine("Opção: " + optionChoiceNumber);
+            
             break;
         case 3:
-            Console.WriteLine("Opção: " + optionChoiceNumber);
+            RateBand();
+            
             break;
         case 4:
             Console.WriteLine("Opção: " + optionChoiceNumber);
@@ -93,6 +94,31 @@ void OptionTittle(string tittle)
     Console.WriteLine(asterisks);
     Console.WriteLine(tittle);
     Console.WriteLine(asterisks + "\n");
+}
+void RateBand()
+{
+    //digite qual banda deseja avaliar
+    // se a banda existir no dicionario >> ai avaliar a nota !
+    // se nao existir volta para o menu principal.
+
+    Console.Clear();
+    OptionTittle("Avaliar Banda !");
+    Console.Write("Digite o nome da banda que deseja avaliar: ");
+    String bandName = Console.ReadLine();
+    if (allRegisteredBands.ContainsKey(bandName))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine($"\nA banda {bandName} não foi encontrada");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal: ");
+        Console.ReadKey();
+        Console.Clear();
+        MenuOptions();
+    }
+
+
 }
 MenuOptions();
 
