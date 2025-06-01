@@ -1,7 +1,9 @@
 ﻿// Screen sound projeto do curso da alura de c#
 // Variaveis camelCase, funções PascalCase
 string welcomeMessage = "Boas vindas ao screen sound";
-List<string> bandList = new List<string> { "Beatles", "Pink Floyd", "Yes" };
+//List<string> bandList = new List<string> { "Beatles", "Pink Floyd", "Yes" };
+
+Dictionary<string, List<int>> allRegisteredBands = new Dictionary<string, List<int>>();
 
 void ShowLogo()
 {
