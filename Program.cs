@@ -1,5 +1,9 @@
 ﻿// Screen sound projeto do curso da alura de c#
 // Variaveis camelCase, funções PascalCase
+using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
+
 string welcomeMessage = "Boas vindas ao screen sound";
 //List<string> bandList = new List<string> { "Beatles", "Pink Floyd", "Yes" };
 
@@ -36,17 +40,18 @@ void MenuOptions()
     {
         case 1:
             BandResgister();
-            
+
             break;
         case 2:
             ShowBands();
-            
+
             break;
         case 3:
             RateBand();
-            
+
             break;
         case 4:
+            ShowRateBand();
             Console.WriteLine("Opção: " + optionChoiceNumber);
             break;
         case -1:
@@ -107,7 +112,13 @@ void RateBand()
     String bandName = Console.ReadLine();
     if (allRegisteredBands.ContainsKey(bandName))
     {
-
+        Console.Write("Digite a nota que você deseja avaliar a banda: ");
+        int grade = int.Parse(Console.ReadLine()!);
+        allRegisteredBands[bandName].Add(grade);
+        Console.WriteLine($"Banda: {bandName}, nota: {grade}, registrada com sucesso !");
+        Thread.Sleep(4000);
+        Console.Clear();
+        MenuOptions();
     }
     else
     {
@@ -119,6 +130,24 @@ void RateBand()
     }
 
 
+}
+void ShowRateBand()
+{
+    Console.Clear();
+    Console.Write("Digite a banda que queira ver a media : ");
+    String bandName = Console.ReadLine()!;
+    if (allRegisteredBands.ContainsKey(bandName))
+    {
+        //depois
+    }
+    else
+    {
+        Console.WriteLine($"\nA banda {bandName} não foi encontrada");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal: ");
+        Console.ReadKey();
+        Console.Clear();
+        MenuOptions();
+    }
 }
 MenuOptions();
 
