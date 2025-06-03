@@ -6,10 +6,10 @@ Este projeto tem como objetivo demonstrar conceitos básicos e intermediários d
 
 ## Funcionalidades Abordadas
 
-- Entrada e saída de dados (`Console.ReadLine`, `Console.WriteLine`)
-- Variáveis e tipos de dados (`int`, `double`, `string`, `bool`, etc.)
+- Entrada e saída de dados
+- Variáveis e tipos de dados 
 - Operadores aritméticos, lógicos e relacionais
-- Estruturas condicionais (`if`, `else`, `switch`)
-- Estruturas de repetição (`for`, `while`, `do-while`, `foreach`)
+- Estruturas condicionais 
+- Estruturas de repetição 
 - Métodos (funções) com e sem retorno
-- Arrays e listas (`List<T>`)
+- Arrays e listas 
